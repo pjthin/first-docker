@@ -1,0 +1,14 @@
+version: '2'
+services:
+  firstdocker:
+    image: "pjthin/first-docker"
+    ports:
+     - "8080:8080"
+  firstdocker2:
+    image: "pjthin/first-docker"
+    ports:
+     - "8090:8080"
+  firstdocker3:
+    image: "pjthin/first-docker"
+    ports:
+     - "8070:8080"
