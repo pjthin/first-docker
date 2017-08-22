@@ -15,9 +15,16 @@ public class Test {
     void testFuture() {
         Future<Void> fut1 = doSomethingLong("1");
         Future<Void> fut2 = fut1.compose(then -> doSomethingLong("2"));
-        CompositeFuture.join(fut1, fut2).setHandler(allDone -> {
+        // CompositeFuture.join(fut1, fut2).setHandler(allDone -> {
+        // if (allDone.succeeded()) {
+        // System.out.println("allDone " + allDone);
+        // } else {
+        // System.out.println(allDone.cause());
+        // }
+        // });
+        CompositeFuture.join(doSomethingLong("3"), doSomethingLong("4")).setHandler(allDone -> {
             if (allDone.succeeded()) {
-                System.out.println("allDone " + allDone);
+                System.out.println("allDone-2 " + allDone);
             } else {
                 System.out.println(allDone.cause());
             }

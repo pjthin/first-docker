@@ -9,6 +9,7 @@ public class PublisherVerticle extends AbstractVerticle {
 
     @Override
     public void start() throws Exception {
+        Utils.log("start publishing...");
         vertx.setPeriodic(1000, this::publish);
     }
 

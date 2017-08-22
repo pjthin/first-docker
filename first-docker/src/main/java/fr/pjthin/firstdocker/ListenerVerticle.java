@@ -12,6 +12,7 @@ public class ListenerVerticle extends AbstractVerticle {
 
     @Override
     public void start(Future<Void> startFuture) throws Exception {
+        Utils.log("start listening...");
         MessageConsumer<Object> consumer = vertx.eventBus().consumer(Context.CHANNEL_EVENTBUS + Context.getID());
         consumer.handler(this::listen);
         consumer.completionHandler(startFuture.completer());
